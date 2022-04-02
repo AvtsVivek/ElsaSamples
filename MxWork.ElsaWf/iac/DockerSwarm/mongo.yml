@@ -1,0 +1,68 @@
+
+# Use root/example as user/password credentials
+#
+# Run docker stack deploy -c mongo.yml mongo 
+# docker stack deploy -c D:\Trials\Devops\Docker\DockerStacks\YamlFiles\mongo.yml mongo 
+# (or docker-compose -f stack.yml up), wait for it to initialize completely, 
+# and visit http://swarm-ip:8081, http://localhost:8081, or http://host-ip:8081 (as appropriate).
+# http://192.168.99.201:8081
+# 
+# https://hub.docker.com/_/mongo/
+
+# https://docs.mongodb.com/manual/reference/connection-string/#connection-string-formats
+# mongodb://mongodb0.example.com:27017
+# mongodb://192.168.99.211:8081
+# mongodb://root:example@192.168.99.211:8081   this is NOT working.
+# mongodb://root:example@192.168.99.211:27017  this is working. 
+# Download mongo db compass to test if that db is running. 
+# The urls are 
+# https://www.mongodb.com/products/compass
+# https://www.mongodb.com/try/download/compass
+# Launch Mondo db compass. Click new connection. 
+# Past the following connection string.
+# mongodb://root:example@192.168.99.201:27017/?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false
+# Here 192.168.99.201 is the ip of the master node. If you are using swarm, then any of the swarm machines ip can be used.
+# In my case its 192.168.99.211, and 192.168.99.212
+# In the application, the following connection string can be used.
+# mongodb://root:example@192.168.99.201:27017
+
+
+version: '3.8'
+services:
+
+  mongo:
+    image: mongo
+    restart: always
+# The following volumes is not working. Not clear why. 
+#    volumes:
+#      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo-js:ro
+#      - ./mongo-volume:/data/db
+#      - ./data:/data/db
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+
+# Not able to connect to express. Its running and we can see in the browser 192.168.99.211:8081
+# But not able to connet when I put the connection string as mongodb://root:example@192.168.99.211:8081
+# Not sure why. But mongo(the non express version seen above) is working with connection string as 
+# mongodb://root:example@192.168.99.211:27017
+#  mongo-express:
+#    image: mongo-express
+#    restart: always
+#    ports:
+#      - 8081:8081
+#    environment:
+#      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+#      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+
+# https://medium.com/faun/managing-mongodb-on-docker-with-docker-compose-26bf8a0bbae3
+# ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo-js:ro means you want to copy 
+# init-mongo.js to /docker-entrypoint-initdb.d/ as a read only file. /docker-entrypoint-initdb.d 
+# is a folder that already created inside the mongo container used for initiating database, 
+# so we copy our script to that folder
+
+# ./mongo-volume:/data/db means you want to set data on container persist on your 
+# local folder named mongo-volume . /data/db/ is a folder that already created inside 
+# the mongo container.

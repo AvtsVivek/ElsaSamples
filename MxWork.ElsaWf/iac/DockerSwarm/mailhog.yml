@@ -1,0 +1,14 @@
+# docker stack deploy -c D:\Trials\Devops\Docker\DockerStacks\YamlFiles\mailhog.yml mailhog
+# docker pull mailhog/mailhog
+# https://hub.docker.com/r/mailhog/mailhog/
+# Now browse to http://192.168.99.201:8025/
+
+version: '3.8'
+services:
+  mailhog:
+    image: mailhog/mailhog
+    logging:
+      driver: 'none'  # disable saving logs
+    ports:
+      - 1025:1025 # smtp server
+      - 8025:8025 # web ui

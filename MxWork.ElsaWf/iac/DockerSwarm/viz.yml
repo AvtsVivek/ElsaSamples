@@ -1,0 +1,16 @@
+version: '3.8'
+
+# set DOCKER_HOST=192.168.99.211
+# docker stack deploy -c D:\Trials\Devops\Docker\DockerStacks\YamlFiles\viz.yml viz. Then browse to http://192.168.99.211:8085/
+
+services:
+    viz:
+        image: dockersamples/visualizer
+        volumes:
+            - "/var/run/docker.sock:/var/run/docker.sock"
+        ports:
+            - "8085:8080"
+        deploy:
+            placement:
+                constraints:
+                    - node.role==manager

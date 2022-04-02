@@ -1,0 +1,73 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8BE16F83-12B0-4C6A-A929-DA046DC90B3C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{95E5841E-00F2-425C-A637-71F7DA5E3B35}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "iac", "iac", "{DB326E4B-43CD-4D1E-B02D-C3A459BBE1F0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MxWork.ElsaWf.WebMsSql", "src\MxWork.Elsa.WebMsSql\MxWork.ElsaWf.WebMsSql.csproj", "{6B6AE580-82AE-44B6-B109-F300278C1273}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MxWork.ElsaWf.WebSqlite", "src\MxWork.Elsa.WebSqlite\MxWork.ElsaWf.WebSqlite.csproj", "{DACB61A5-10D4-4EE6-A598-C2A6B167E3D2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MxWork.ElsaWf.UserRegis.BlazorServerMongo", "src\MxWork.ElsaWf.UserRegis.BlazorServerMongo\MxWork.ElsaWf.UserRegis.BlazorServerMongo.csproj", "{7C8C6203-DE3F-4C04-A80D-12DB99254319}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MxWork.ElsaWf.UserRegis.BlazorServerMsSql", "src\MxWork.ElsaWf.UserRegis.BlazorServerMsSql\MxWork.ElsaWf.UserRegis.BlazorServerMsSql.csproj", "{0B07DAF6-05C1-48A7-801D-B3B976BEC843}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DockerSwarm", "DockerSwarm", "{9ED3A622-27EA-4C0B-A938-F1F33B22443F}"
+	ProjectSection(SolutionItems) = preProject
+		iac\DockerSwarm\mailhog.yml = iac\DockerSwarm\mailhog.yml
+		iac\DockerSwarm\mongo.yml = iac\DockerSwarm\mongo.yml
+		iac\ReadMe.md = iac\ReadMe.md
+		iac\DockerSwarm\run-on-all-nodes.bat = iac\DockerSwarm\run-on-all-nodes.bat
+		iac\DockerSwarm\Vagrantfile = iac\DockerSwarm\Vagrantfile
+		iac\DockerSwarm\viz.yml = iac\DockerSwarm\viz.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "provision", "provision", "{1B0026C0-A5A8-4601-A57C-5A39CA6E118E}"
+	ProjectSection(SolutionItems) = preProject
+		iac\DockerSwarm\provision\dockerce.sh = iac\DockerSwarm\provision\dockerce.sh
+		iac\DockerSwarm\provision\dockertest.sh = iac\DockerSwarm\provision\dockertest.sh
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6B6AE580-82AE-44B6-B109-F300278C1273}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B6AE580-82AE-44B6-B109-F300278C1273}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B6AE580-82AE-44B6-B109-F300278C1273}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B6AE580-82AE-44B6-B109-F300278C1273}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DACB61A5-10D4-4EE6-A598-C2A6B167E3D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DACB61A5-10D4-4EE6-A598-C2A6B167E3D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DACB61A5-10D4-4EE6-A598-C2A6B167E3D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DACB61A5-10D4-4EE6-A598-C2A6B167E3D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C8C6203-DE3F-4C04-A80D-12DB99254319}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C8C6203-DE3F-4C04-A80D-12DB99254319}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C8C6203-DE3F-4C04-A80D-12DB99254319}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C8C6203-DE3F-4C04-A80D-12DB99254319}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B07DAF6-05C1-48A7-801D-B3B976BEC843}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B07DAF6-05C1-48A7-801D-B3B976BEC843}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B07DAF6-05C1-48A7-801D-B3B976BEC843}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B07DAF6-05C1-48A7-801D-B3B976BEC843}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6B6AE580-82AE-44B6-B109-F300278C1273} = {8BE16F83-12B0-4C6A-A929-DA046DC90B3C}
+		{DACB61A5-10D4-4EE6-A598-C2A6B167E3D2} = {8BE16F83-12B0-4C6A-A929-DA046DC90B3C}
+		{7C8C6203-DE3F-4C04-A80D-12DB99254319} = {8BE16F83-12B0-4C6A-A929-DA046DC90B3C}
+		{0B07DAF6-05C1-48A7-801D-B3B976BEC843} = {8BE16F83-12B0-4C6A-A929-DA046DC90B3C}
+		{9ED3A622-27EA-4C0B-A938-F1F33B22443F} = {DB326E4B-43CD-4D1E-B02D-C3A459BBE1F0}
+		{1B0026C0-A5A8-4601-A57C-5A39CA6E118E} = {9ED3A622-27EA-4C0B-A938-F1F33B22443F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FD144148-B103-42F7-8B51-E144B8875ABE}
+	EndGlobalSection
+EndGlobal
